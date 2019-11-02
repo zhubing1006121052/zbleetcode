@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
- *
+ *https://leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-2/
  */
 public class Sum2Numbers {
 
@@ -60,13 +60,13 @@ public class Sum2Numbers {
      * @return
      */
     public static int[] twoSum3(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-            int left = target - nums[i];
-            if(map.containsKey(left)){
-                return new int[]{map.get(left),i};
+        HashMap<Integer, Integer> valIndexMap = new HashMap<Integer, Integer>();
+        for(int i=0;i < nums.length;i++){
+            int diff = target - nums[i];
+            if(valIndexMap.containsKey(diff)){
+                return new int[]{i,valIndexMap.get(diff)};
             }
-            map.put(nums[i],i);
+            valIndexMap.put(nums[i],i);
         }
         throw new IllegalArgumentException("No two sum value");
     }
