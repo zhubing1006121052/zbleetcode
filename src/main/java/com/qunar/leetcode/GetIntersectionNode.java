@@ -1,5 +1,7 @@
 package com.qunar.leetcode;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * 编写一个程序，找到两个单链表相交的起始节点
  *
@@ -14,6 +16,7 @@ public class GetIntersectionNode {
 
 
     public static void main(String[] args) {
+        Thread.currentThread().interrupt();
         ListNode node3 = new ListNode(3);
         ListNode node4 = new ListNode(4);
         ListNode headA = new ListNode(1);
@@ -23,6 +26,8 @@ public class GetIntersectionNode {
         headB.next = node3;
         headB.next.next = node4;
         System.out.println(getIntersectionNode(headA,headB).val);
+        ReentrantLock reentrantLock  = new ReentrantLock ( false );
+        reentrantLock.lock();
     }
 
     /**
