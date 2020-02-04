@@ -61,7 +61,7 @@ public class Add2Numbers {
      */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0);
-        ListNode tmp = head;
+        ListNode tmp = head;//两个链表新加的数据放到新的链表中
         while(l1 != null || l2 != null){//按最长的计算，短的链表元素置0处理
             int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + tmp.val;
             int carry = sum/10;
