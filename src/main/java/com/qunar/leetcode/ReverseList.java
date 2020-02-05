@@ -23,7 +23,7 @@ public class ReverseList {
      * @param head
      * @return
      */
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseList1(ListNode head) {
         ListNode pre = null;//当前链表头的上一个节点是没有的
         ListNode curr = head;//当前节点就是头结点
         while(curr != null){
@@ -35,6 +35,25 @@ public class ReverseList {
         return pre;
     }
 
+    /**
+     * 递归反转链表 1->2->3->4->5->NULL
+     * https://blog.csdn.net/w605283073/article/details/86653745
+     * @param head
+     * @return
+     */
+    public ListNode reverseList2(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        // 遍历到链表尾部  其实递归的终点肯定是链表尾部的节点head.next为5
+        ListNode newHead = reverseList2(head.next);
+        // 反转  找到尾部节点head.next 5后，那么这个节点下一个节点应该是4，所以指向4
+        head.next.next = head;
+        //head其实是4，所以他的下一个节点此时就为空了
+        head.next = null;
+        //
+        return newHead;
+    }
     /**
      * 初始化链表
      * @param size
@@ -73,7 +92,7 @@ public class ReverseList {
         ReverseList reverseList = new ReverseList();
         ListNode head = reverseList.initList(5);
         reverseList.printfList(head);
-        ListNode listNode = reverseList.reverseList(head);
+        ListNode listNode = reverseList.reverseList1(head);
         System.out.println();
         reverseList.printfList(listNode);
         System.out.println();
