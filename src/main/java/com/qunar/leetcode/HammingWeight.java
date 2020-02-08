@@ -1,7 +1,7 @@
 package com.qunar.leetcode;
 
 /**
- * 位1的个数   
+ * 位1的个数
  */
 public class HammingWeight {
 
