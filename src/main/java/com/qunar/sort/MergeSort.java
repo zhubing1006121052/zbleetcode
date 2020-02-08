@@ -22,12 +22,9 @@ public class MergeSort {
      * @param nums
      * @return
      */
-    public static int[] mergeSort_diedai(int nums[]){
+    public static void mergeSort_diedai(int nums[]){
 
-        while(){
-
-        }
-
+        mergeSort_digui(nums);
     }
 
     public static void mergeSort_digui(int nums[]){
