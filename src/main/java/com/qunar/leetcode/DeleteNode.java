@@ -58,7 +58,7 @@ public class DeleteNode {
     public static void deleteNode(ListNode node) {
 
         ListNode next = node.getNext();
-        node.setNum(node.getNext().getNum());
+        node.setVal(node.getNext().getVal());
         node.setNext(node.getNext().getNext());
         next.setNext(null);//中间节点删除了   置为空更方便gc回收
     }
@@ -67,7 +67,7 @@ public class DeleteNode {
 
         ListNode pre = null;
         ListNode curr = node;
-        while(curr.getNum() != target){
+        while(curr.getVal() != target){
             if(curr.getNext() == null){
                 return;
             }
