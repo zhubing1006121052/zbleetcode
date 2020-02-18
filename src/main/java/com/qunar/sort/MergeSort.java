@@ -45,7 +45,7 @@ public class MergeSort {
             //             右边[]    右边从middle+1开始到end结束
             int leftIndex = start,rightIndex = middle+1,tmpIndex=0;
             while(leftIndex <= middle && rightIndex <= end){
-                if(nums[leftIndex] < rightIndex){
+                if(nums[leftIndex] < nums[rightIndex]){
                     tmp[tmpIndex++] = nums[leftIndex++];//谁小先放谁
                 }else{
                     tmp[tmpIndex++] = nums[rightIndex++];
