@@ -12,12 +12,17 @@ public class CyclicBarrierTest {
 
 
     public static void main(String[] args) {
+        /**
+         * 第二个参数为7个线程运行完之后再运行new HorseRace()
+         */
         CyclicBarrier barrier = new CyclicBarrier(7, new HorseRace());
         for(int i = 0; i < 7; i++) {
             Horse horse = new Horse(barrier);
             HorseRace.horses.add(horse);
             HorseRace.exec.execute(horse);
         }
+        //main方法第一个执行完，这个就是和CountDownLatch不一样的地方
+        System.out.println("####################main方法执行完了#####################");
     }
 
     public static class Horse implements Runnable {
