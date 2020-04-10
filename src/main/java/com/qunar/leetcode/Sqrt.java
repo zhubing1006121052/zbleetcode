@@ -30,12 +30,13 @@ public class Sqrt {
     }
 
     /**
-     *
+     *这个有问题，边界值没考虑全
      * @param left
      * @param right
      * @param target
      * @return
      */
+    @Deprecated
     public static int sqrt(int left, int right,int target){
         if(left == right){
             return left;
@@ -64,11 +65,13 @@ public class Sqrt {
      * @param target
      * @return
      */
-    public static int sqrt2(float left, float right,int target){
+    public static int sqrt2(double left, double right,int target){
 
-        float middle = (left + right)/2;
-        if(Math.round(middle*middle) == target){
-            return Math.round(middle);
+        double middle = (left + right)/2;
+        if(Math.round(middle)*Math.round(middle) == target){
+            return (int)Math.round(middle);
+        }else if(Math.round(middle*middle) == target){
+            return (int)Math.floor(middle);
         }else if(Math.round(middle*middle) < target){
             return sqrt2(middle,right,target);
         }else{
