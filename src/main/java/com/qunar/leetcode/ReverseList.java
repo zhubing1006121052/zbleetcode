@@ -1,5 +1,6 @@
 package com.qunar.leetcode;
 
+import com.qunar.common.ListNode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,8 +10,22 @@ import lombok.Data;
  * 输出: 5->4->3->2->1->NULL
  *
  * 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+ * https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/submissions/
  */
 public class ReverseList {
+
+
+    public static ListNode aa(ListNode head){
+
+        ListNode pre = null,curr = head;
+        while (curr != null){
+            ListNode tmpCurr = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = tmpCurr;
+        }
+        return pre;
+    }
 
     /**
      * 反转单向链表-就是将链表顺序反过来
@@ -96,6 +111,7 @@ public class ReverseList {
         System.out.println();
         reverseList.printfList(listNode);
         System.out.println();
+
     }
 
     @AllArgsConstructor
