@@ -7,9 +7,45 @@ package com.qunar.leetcode;
  **/
 public class Sqrt {
 
+    public static int aa(int n){
+
+        if(n == 0 || n == 1){
+            return n;
+        }
+        return bb(0,n,n);
+    }
+    public static int bb(int left, int right, int target){
+
+        int middle = (left + right)/2;
+        if(middle * middle == target){
+            return middle;
+        }else if(middle * middle > target){
+            if((middle - 1)*(middle - 1) < target){
+                if(middle * middle - target > target - (middle - 1)*(middle - 1)){
+                    return middle-1;
+                }else{
+                    return middle;
+                }
+            }else{
+                return bb(left,middle,target);
+            }
+        }else {
+            if((middle + 1)*(middle + 1) > target){
+                if((middle + 1)*(middle + 1) - target > target - middle*middle){
+                    return middle;
+                }else{
+                    return middle + 1;
+                }
+            }else {
+                return bb(middle,right,target);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         for(int i=0;i<200;i++){
-            System.out.println(i+" sqrt is "+sqrt(i));
+            System.out.println(i+" sqrt a is "+sqrt(i));
+            System.out.println(i+" sqrt b is "+aa(i));
         }
         System.out.println();
     }
