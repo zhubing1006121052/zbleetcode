@@ -22,9 +22,33 @@ import java.util.List;
  */
 public class GenerateParenthesis {
 
+    public static List<String> aa(int n){
+        List<String> result = new ArrayList<>();
+        bb("(",1,0,n,result);
+        return result;
+    }
+    public static void bb(String curr, int left, int right, int n, List<String> result){
+
+        if(left + right == n){
+            result.add(curr);
+            return ;
+        }
+        //其实进来的时候你考虑  是添加左挎号还是右挎号   只要左挎号的个数小于一半  就可以添加左挎号
+        //那右挎号什么什么时候可以添加呢？只要左边挎号个数大于右边的时候就可以添加又挎号，右边挎号个数都大于等于左边的时候就不能在添加左挎号了
+        if(left < n/2){
+            bb(curr+"(",left + 1,right,n,result);
+        }
+        //
+        if(right < left){
+            bb(curr+")",left,right + 1,n,result);
+        }
+
+    }
 
     public static void main(String[] args) {
 
+        System.out.println(aa(6));
+        System.out.println(generateParenthesis(3));
     }
 
 
